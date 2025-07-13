@@ -1,4 +1,5 @@
 import 'package:expense_tracker/common/common_app_bar.dart';
+import 'package:expense_tracker/common/common_scaffold.dart';
 
 import 'package:expense_tracker/constant/my_theme.dart';
 import 'package:expense_tracker/constant/number_formatter.dart';
@@ -97,60 +98,58 @@ class _HistoryPageState extends State<HistoryPage> {
   Widget build(BuildContext context) {
     final drawerController = Get.find<ZoomDrawerGetXController>();
 
-    return SafeArea(
-      child: Scaffold(
-        appBar: CommonAppBar(
-          title: const Text(
-            "History",
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
+    return CommonScaffold(
+      appBar: CommonAppBar(
+        title: const Text(
+          "History",
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
           ),
-          drawerOnTap: () {
-            drawerController.toggleDrawer();
-          },
         ),
-        body: Container(
-          color: MyTheme.bgColor,
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              children: [
-                Expanded(
-                  child: GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisExtent: 100,
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 8,
-                      mainAxisSpacing: 8,
-                      childAspectRatio: 1.0,
-                    ),
-                    itemCount: months.length,
-                    itemBuilder: (context, index) {
-                      return GetBuilder<ExpenseController>(
-                          builder: (controller) {
-                        final total =
-                            controller.monthlyTotals[index + 1] ?? 0.0;
-                        return HistoryCard(
-                          month: months[index],
-                          total: "${numberFormatter(total.toString())} Ks",
-                          onTap: () {
-                            Get.to(
-                              () => HistoryDetailPage(
-                                month: months[index],
-                                monthIndex: index + 1,
-                              ),
-                            );
-                          },
-                        );
-                      });
-                    },
+        drawerOnTap: () {
+          drawerController.toggleDrawer();
+        },
+      ),
+      body: Container(
+        color: MyTheme.bgColor,
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              Expanded(
+                child: GridView.builder(
+                  gridDelegate:
+                      const SliverGridDelegateWithFixedCrossAxisCount(
+                    mainAxisExtent: 100,
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 8,
+                    mainAxisSpacing: 8,
+                    childAspectRatio: 1.0,
                   ),
-                )
-              ],
-            ),
+                  itemCount: months.length,
+                  itemBuilder: (context, index) {
+                    return GetBuilder<ExpenseController>(
+                        builder: (controller) {
+                      final total =
+                          controller.monthlyTotals[index + 1] ?? 0.0;
+                      return HistoryCard(
+                        month: months[index],
+                        total: "${numberFormatter(total.toString())} Ks",
+                        onTap: () {
+                          Get.to(
+                            () => HistoryDetailPage(
+                              month: months[index],
+                              monthIndex: index + 1,
+                            ),
+                          );
+                        },
+                      );
+                    });
+                  },
+                ),
+              )
+            ],
           ),
         ),
       ),

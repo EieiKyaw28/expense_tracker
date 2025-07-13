@@ -3,6 +3,7 @@ import 'package:expense_tracker/constant/my_image.dart';
 import 'package:expense_tracker/constant/my_theme.dart';
 import 'package:expense_tracker/controller/zoom_controller.dart';
 import 'package:expense_tracker/domain/menu_model.dart';
+import 'package:expense_tracker/presentation/chart/chart_page.dart';
 import 'package:expense_tracker/presentation/history/history_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -103,7 +104,7 @@ List<MenuModel> menuList = [
   MenuModel(
     title: "Chart",
     image: MyImage.chartIcon,
-    route: Container(),
+    route: const ChartPage(),
   ),
   MenuModel(
     title: "Theme",

@@ -1,3 +1,4 @@
+import 'package:expense_tracker/controller/chart_controller.dart';
 import 'package:expense_tracker/controller/expense_controller.dart';
 import 'package:expense_tracker/controller/note_controller.dart';
 import 'package:expense_tracker/controller/zoom_controller.dart';
@@ -12,6 +13,9 @@ class InitialBindings extends Bindings {
     Get.lazyPut<ExpenseRepository>(() => ExpenseRepository());
 
     Get.put(ExpenseController(Get.find<ExpenseRepository>()));
+    //for chart
+    Get.put(ChartController(Get.find<ExpenseRepository>()));
+
     //for note
     Get.lazyPut<NoteRepository>(() => NoteRepository());
     Get.put(NoteController(Get.find<NoteRepository>()));

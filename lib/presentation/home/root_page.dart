@@ -1,9 +1,6 @@
-import 'dart:developer';
-
-import 'package:expense_tracker/common/common_app_bar.dart';
 import 'package:expense_tracker/common/common_scaffold.dart';
-import 'package:expense_tracker/constant/my_theme.dart';
 import 'package:expense_tracker/controller/zoom_controller.dart';
+import 'package:expense_tracker/presentation/chart/chart_page.dart';
 import 'package:expense_tracker/presentation/history/history_page.dart';
 import 'package:expense_tracker/presentation/home/create_page.dart';
 import 'package:expense_tracker/presentation/home/home_page.dart';
@@ -18,7 +15,6 @@ class RootPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<ZoomDrawerGetXController>(
       builder: (drawerController) {
-        log("Current Page : ${drawerController.currentPage.value}");
         return CommonScaffold(
           body: Obx(
             () {
@@ -31,6 +27,8 @@ class RootPage extends StatelessWidget {
                   return const CreatePage();
                 case 'note':
                   return const NotePage();
+                case 'chart':
+                  return const ChartPage();
                 default:
                   return const HomePage();
               }

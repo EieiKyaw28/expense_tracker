@@ -82,3 +82,26 @@ String searchExpenseIconBySlug(String slug) {
       return MyImage.expenseIcon;
   }
 }
+
+Color searchColorBySlug(String slug) {
+  switch (slug) {
+    case 'food':
+      return const Color(0xFFFFE0B2); // 🍊 Light Orange: appetizing and warm
+    case 'bill':
+      return const Color(0xFFFFF59D); // 💡 Soft Yellow: electricity/water bills
+    case 'health':
+      return const Color(0xFFC8E6C9); // 💊 Light Green: health, wellness
+    case 'education':
+      return const Color(0xFFB3E5FC); // 📘 Light Blue: calm, knowledge
+    case 'entertainment':
+      return const Color(0xFFD1C4E9); // 🎮 Light Purple: fun, creativity
+    case 'transporation':
+      return const Color(0xFFFFCCBC); // 🚗 Light Coral: roads, movement
+    case 'shopping':
+      return const Color(0xFFF8BBD0); // 🛍️ Light Pink: retail, casual spending
+    case 'other':
+      return const Color(0xFFE0E0E0); // 📦 Light Grey: uncategorized/neutral
+    default:
+      return const Color(0xFFBBDEFB); // 🔵 Default Blue: fallback
+  }
+}
