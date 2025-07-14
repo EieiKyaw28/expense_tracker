@@ -101,11 +101,11 @@ List<MenuModel> menuList = [
     image: MyImage.historyIcon,
     route: const HistoryPage(),
   ),
-  MenuModel(
-    title: "Chart",
-    image: MyImage.chartIcon,
-    route: const ChartPage(),
-  ),
+  // MenuModel(
+  //   title: "Chart",
+  //   image: MyImage.chartIcon,
+  //   route: const ChartPage(),
+  // ),
   MenuModel(
     title: "Theme",
     image: MyImage.themeIcon,
@@ -116,14 +116,14 @@ List<MenuModel> menuList = [
     image: MyImage.profileIcon,
     route: Container(),
   ),
-  MenuModel(
-    title: "Setting",
-    image: MyImage.settingIcon,
-    route: Container(),
-  ),
-  MenuModel(
-    title: "Logout",
-    image: MyImage.logoutIcon,
-    route: Container(),
-  ),
+  // MenuModel(
+  //   title: "Setting",
+  //   image: MyImage.settingIcon,
+  //   route: Container(),
+  // ),
+  // MenuModel(
+  //   title: "Logout",
+  //   image: MyImage.logoutIcon,
+  //   route: Container(),
+  // ),
 ];

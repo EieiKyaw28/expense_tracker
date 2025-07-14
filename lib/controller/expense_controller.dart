@@ -82,6 +82,7 @@ class ExpenseController extends GetxController {
       final total = await expenseRepo.getTotalForMonth(month, year);
       monthlyTotals[month] = total;
     }
+    update();
   }
 
   Future<void> addExpense({

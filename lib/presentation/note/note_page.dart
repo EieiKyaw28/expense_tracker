@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:expense_tracker/common/common_app_bar.dart';
 import 'package:expense_tracker/common/common_scaffold.dart';
 import 'package:expense_tracker/constant/extensions.dart';
+import 'package:expense_tracker/constant/my_theme.dart';
 import 'package:expense_tracker/controller/note_controller.dart';
 import 'package:expense_tracker/controller/zoom_controller.dart';
 import 'package:expense_tracker/presentation/note/note_create_page.dart';
@@ -193,7 +194,7 @@ class _NotePageState extends State<NotePage> {
                                                 ? Icons.check_circle
                                                 : Icons.circle,
                                             color: note.isCheck
-                                                ? Colors.amberAccent
+                                                ? MyTheme.primaryColor
                                                 : Colors.black12,
                                           ),
                                         )

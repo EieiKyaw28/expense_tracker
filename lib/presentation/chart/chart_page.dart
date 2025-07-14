@@ -4,7 +4,7 @@ import 'package:expense_tracker/constant/extensions.dart';
 import 'package:expense_tracker/constant/my_theme.dart';
 import 'package:expense_tracker/controller/zoom_controller.dart';
 import 'package:expense_tracker/domain/expense/common_expense_model.dart';
-import 'package:expense_tracker/presentation/chart/expense_type_pie_chart.dart';
+import 'package:expense_tracker/presentation/history/expense_type_pie_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

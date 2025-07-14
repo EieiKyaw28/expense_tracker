@@ -72,7 +72,8 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                       child: Padding(
                     padding: const EdgeInsets.all(6),
-                    child: ListView.builder(
+                    child: ListView.separated(
+                        separatorBuilder: (context, index) => 10.vGap,
                         shrinkWrap: true,
                         itemCount: expenseController.expenseGroupByList.length,
                         itemBuilder: (context, index) {
@@ -85,8 +86,7 @@ class _HomePageState extends State<HomePage> {
                               Text(expenseItem.date),
                               10.vGap,
                               ListView.separated(
-                                  separatorBuilder: (context, index) =>
-                                      const SizedBox(height: 10),
+                                  separatorBuilder: (context, index) => 10.vGap,
                                   shrinkWrap: true,
                                   physics: const NeverScrollableScrollPhysics(),
                                   itemCount: expenseItem.expense.length,

@@ -10,6 +10,7 @@ class MyImage {
   static const historyIcon = 'assets/image/history.png';
   static const noteIcon = 'assets/image/note.png';
   static const homeIcon = 'assets/image/home.png';
+  static const listIcon = 'assets/image/list.png';
 
   //Common Expense
   static const food = 'assets/image/food.png';
