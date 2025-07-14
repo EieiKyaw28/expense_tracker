@@ -111,11 +111,11 @@ List<MenuModel> menuList = [
     image: MyImage.themeIcon,
     route: Container(),
   ),
-  MenuModel(
-    title: "Profile",
-    image: MyImage.profileIcon,
-    route: Container(),
-  ),
+  // MenuModel(
+  //   title: "Profile",
+  //   image: MyImage.profileIcon,
+  //   route: Container(),
+  // ),
   // MenuModel(
   //   title: "Setting",
   //   image: MyImage.settingIcon,
