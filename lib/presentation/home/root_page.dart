@@ -4,6 +4,7 @@ import 'package:expense_tracker/presentation/chart/chart_page.dart';
 import 'package:expense_tracker/presentation/history/history_page.dart';
 import 'package:expense_tracker/presentation/home/create_page.dart';
 import 'package:expense_tracker/presentation/home/home_page.dart';
+import 'package:expense_tracker/presentation/home/splash_page.dart';
 import 'package:expense_tracker/presentation/note/note_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,7 +31,7 @@ class RootPage extends StatelessWidget {
                 case 'chart':
                   return const ChartPage();
                 default:
-                  return const HomePage();
+                  return SplashPage();
               }
             },
           ),

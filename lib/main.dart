@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:expense_tracker/binding/initial_binding.dart';
 import 'package:expense_tracker/domain/expense/expense.dart';
 import 'package:expense_tracker/domain/note/note.dart';
@@ -17,7 +19,7 @@ void main() async {
   final dir = await getApplicationDocumentsDirectory();
   isar = await Isar.open(
     [
-      ExpenseSchema,
+      BudgetSchema,
       NoteSchema,
     ],
     directory: dir.path,
@@ -27,9 +29,14 @@ void main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(

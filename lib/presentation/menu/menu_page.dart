@@ -3,7 +3,6 @@ import 'package:expense_tracker/constant/my_image.dart';
 import 'package:expense_tracker/constant/my_theme.dart';
 import 'package:expense_tracker/controller/zoom_controller.dart';
 import 'package:expense_tracker/domain/menu_model.dart';
-import 'package:expense_tracker/presentation/chart/chart_page.dart';
 import 'package:expense_tracker/presentation/history/history_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,26 +29,15 @@ class _MenuPageState extends State<MenuPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              20.vGap,
-              ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: const Icon(Icons.person,
-                      color: MyTheme.primaryColor, size: 50)),
-              10.vGap,
-              const Text("User Name",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  )),
-              30.vGap,
+              100.vGap,
+              Image.asset(MyImage.appIcon),
+              40.vGap,
               const Divider(),
               ListView.builder(
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.only(
-                        top: 30,
-                      ),
+                      padding: const EdgeInsets.only(top: 20),
                       child: InkWell(
                         onTap: () {
                           drawerController
@@ -106,11 +94,11 @@ List<MenuModel> menuList = [
   //   image: MyImage.chartIcon,
   //   route: const ChartPage(),
   // ),
-  MenuModel(
-    title: "Theme",
-    image: MyImage.themeIcon,
-    route: Container(),
-  ),
+  // MenuModel(
+  //   title: "Theme",
+  //   image: MyImage.themeIcon,
+  //   route: Container(),
+  // ),
   // MenuModel(
   //   title: "Profile",
   //   image: MyImage.profileIcon,

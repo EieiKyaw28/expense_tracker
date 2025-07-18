@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:expense_tracker/controller/zoom_controller.dart';
 import 'package:expense_tracker/presentation/home/root_page.dart';
 import 'package:expense_tracker/presentation/menu/menu_page.dart';
@@ -5,8 +7,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
 
-class AppRoot extends StatelessWidget {
+class AppRoot extends StatefulWidget {
   const AppRoot({super.key});
+
+  @override
+  State<AppRoot> createState() => _AppRootState();
+}
+
+class _AppRootState extends State<AppRoot> {
+ 
 
   @override
   Widget build(BuildContext context) {

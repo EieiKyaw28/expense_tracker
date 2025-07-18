@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 class ZoomDrawerGetXController extends GetxController {
   final zoomDrawerController = ZoomDrawerController();
-  final currentPage = "home".obs;
+  final currentPage = "".obs;
 
   void toggleDrawer() => zoomDrawerController.toggle?.call();
   void openDrawer() => zoomDrawerController.open?.call();

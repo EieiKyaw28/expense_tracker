@@ -27,7 +27,7 @@ class ChartController extends GetxController {
     expenseRepo.getExpenseList(family).listen((expenses) {
       // Filter current month's expenses
       final now = DateTime.now();
-      final currentMonthExpenses = expenses.where((e) {
+      final currentMonthExpenses = expenses.expenseList?.where((e) {
         return e.createdAt != null &&
             e.createdAt!.year == now.year &&
             e.createdAt!.month == now.month;
@@ -35,13 +35,13 @@ class ChartController extends GetxController {
 
       // Group by expenseType
       final Map<String, List<Expense>> grouped = {};
-      for (var e in currentMonthExpenses) {
+      for (var e in currentMonthExpenses ?? []) {
         if (e.expenseType == null) continue;
         grouped.putIfAbsent(e.expenseType!, () => []).add(e);
       }
 
       // Total amount for the month
-      final double total = currentMonthExpenses.fold(
+      final double total = currentMonthExpenses!.fold(
         0.0,
         (sum, e) => sum + (e.amount ?? 0),
       );

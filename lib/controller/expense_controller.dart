@@ -9,6 +9,7 @@ class ExpenseController extends GetxController {
   final ExpenseRepository expenseRepo;
 
   ExpenseController(this.expenseRepo);
+  Budget budget = Budget();
 
   List<Expense> expenseList = <Expense>[];
   List<ExpenseGroupByModel> expenseGroupByList = <ExpenseGroupByModel>[];
@@ -25,7 +26,12 @@ class ExpenseController extends GetxController {
   Future<void> fetchExpenses({required ExpenseFamilyModel? family}) async {
     selectedFamily = family;
     expenseRepo.getExpenseList(family).listen((expense) {
-      expenseList = expense;
+      expenseList = expense.expenseList ?? [];
+      budget = Budget(
+        id: expense.id,
+        income: expense.income,
+        createdAt: expense.createdAt,
+      );
       update();
     });
   }
@@ -37,7 +43,7 @@ class ExpenseController extends GetxController {
     expenseRepo.getExpenseList(family).listen((expenses) {
       final Map<String, List<Expense>> grouped = {};
 
-      for (final expense in expenses) {
+      for (final expense in expenses.expenseList ?? []) {
         final expenseDate = expense.createdAt!;
 
         // Calculate today and yesterday
@@ -61,7 +67,8 @@ class ExpenseController extends GetxController {
       }
 
       expenseGroupByList = grouped.entries
-          .map((entry) => ExpenseGroupByModel(entry.key, entry.value))
+          .map(
+              (entry) => ExpenseGroupByModel(budget.id, entry.key, entry.value))
           .toList();
 
       // Optional: Custom sort: Today > Yesterday > rest by date descending
@@ -98,8 +105,8 @@ class ExpenseController extends GetxController {
     fetchExpenses(family: selectedFamily);
   }
 
-  Future<void> deleteExpense(int id) async {
-    await expenseRepo.deleteExpense(id);
+  Future<void> deleteExpense(int id, DateTime createdAt) async {
+    await expenseRepo.deleteExpense(budgetId: id, createdAt: createdAt);
     fetchExpenses(family: selectedFamily);
   }
 }

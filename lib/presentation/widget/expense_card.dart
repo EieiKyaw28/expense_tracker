@@ -21,7 +21,6 @@ class ExpenseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log("expense type : ${expense.expenseType ?? ""} | ${expense.description}");
     return GestureDetector(
       onLongPress: () {
         showDialog(
