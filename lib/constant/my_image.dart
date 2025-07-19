@@ -11,6 +11,8 @@ class MyImage {
   static const noteIcon = 'assets/image/note.png';
   static const homeIcon = 'assets/image/home.png';
   static const listIcon = 'assets/image/list.png';
+  static const incomeIcon = 'assets/image/income.png';
+
   static const appIcon = 'assets/image/app_icon.jpg';
 
   //Common Expense

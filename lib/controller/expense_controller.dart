@@ -1,8 +1,9 @@
+import 'package:expense_tracker/constant/extensions.dart';
 import 'package:expense_tracker/domain/expense/expense.dart';
 import 'package:expense_tracker/domain/expense/expense_family_model.dart';
 import 'package:expense_tracker/domain/expense/expense_group_by_model.dart';
 import 'package:expense_tracker/repository/expense_repository.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 class ExpenseController extends GetxController {
@@ -10,6 +11,8 @@ class ExpenseController extends GetxController {
 
   ExpenseController(this.expenseRepo);
   Budget budget = Budget();
+  double income = 0.0.obs();
+  double balance = 0.0.obs();
 
   List<Expense> expenseList = <Expense>[];
   List<ExpenseGroupByModel> expenseGroupByList = <ExpenseGroupByModel>[];
@@ -32,6 +35,13 @@ class ExpenseController extends GetxController {
         income: expense.income,
         createdAt: expense.createdAt,
       );
+      income = budget.income ?? 0;
+      double totalExpenses = expenseList.fold(
+        0,
+        (sum, item) => sum + (item.amount ?? 0),
+      );
+
+      balance = income - totalExpenses;
       update();
     });
   }
@@ -90,6 +100,17 @@ class ExpenseController extends GetxController {
       monthlyTotals[month] = total;
     }
     update();
+  }
+
+  Future<void> addIncome({
+    required double income,
+    required int id,
+  }) async {
+    await expenseRepo.addIncome(
+      income: income,
+      id: id,
+    );
+    fetchExpenses(family: selectedFamily);
   }
 
   Future<void> addExpense({

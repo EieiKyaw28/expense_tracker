@@ -18,8 +18,9 @@ class ExpenseRepository {
           .watch(fireImmediately: true);
     } else {
       final startDate = DateTime(family.year, family.month, 1);
-      final endDate = DateTime(family.year, family.month + 1, 1)
-          .subtract(const Duration(milliseconds: 1));
+
+      final endDate =
+          DateTime(family.year, family.month + 1, 0, 23, 59, 59, 999);
 
       final query = isar.budgets
           .filter()
@@ -29,8 +30,17 @@ class ExpenseRepository {
       budgetStream = query.watch(fireImmediately: true);
     }
 
-    // Flatten List<Budget> to individual Budget items in Stream
-    return budgetStream.asyncExpand((list) => Stream.fromIterable(list));
+    // return budgetStream.asyncExpand((list) => Stream.fromIterable(list));
+
+    return budgetStream.map((list) {
+      final budget = list.firstOrNull;
+      if (budget != null) {
+        /// sort expense list descending
+        budget.expenseList?.sort((a, b) =>
+            (b.createdAt ?? DateTime(0)).compareTo(a.createdAt ?? DateTime(0)));
+      }
+      return budget!;
+    });
   }
 
   Future<double> getTotalForMonth(int month, int year) async {
@@ -49,6 +59,39 @@ class ExpenseRepository {
     }
 
     return total;
+  }
+
+  Future<void> addIncome({
+    required double income,
+    int? id,
+  }) async {
+    try {
+      log("Income ID :: $id $income");
+      final now = DateTime.now().toUtc();
+
+      await isar.writeTxn(() async {
+        Budget? budget;
+
+        if (id != null) {
+          budget = await isar.budgets.get(id);
+        }
+
+        if (budget != null) {
+          budget.income = income;
+        } else {
+          budget = Budget()
+            ..income = income
+            ..createdAt = now
+            ..expenseList = [];
+        }
+
+        await isar.budgets.put(budget);
+      });
+
+      Navigator.pop(navigatorKey.currentContext!);
+    } catch (e, st) {
+      log("Budget Error (addIncome): $e\n$st");
+    }
   }
 
   Future<void> addExpense({

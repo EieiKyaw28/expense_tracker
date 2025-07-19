@@ -2,8 +2,6 @@ import 'package:isar/isar.dart';
 
 part 'expense.g.dart';
 
-
-
 @collection
 class Budget {
   Id id = Isar.autoIncrement;
@@ -34,12 +32,12 @@ class Budget {
   }
 }
 
-
 @embedded
 class Expense {
   double? amount;
   String? description;
   String? expenseType;
+
   DateTime? createdAt;
 
   Expense({

@@ -172,7 +172,7 @@ class ExpenseCard extends StatelessWidget {
                           ),
                           Text(
                             expense.createdAt != null
-                                ? DateFormat('hh:ss a')
+                                ? DateFormat('hh:mm a')
                                     .format(expense.createdAt!)
                                 : "",
                             textAlign: TextAlign.end,
