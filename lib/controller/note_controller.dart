@@ -45,7 +45,12 @@ class NoteController extends GetxController {
   }
 
   Future<void> addNote(String note) async {
-    await noteRepo.addNote(note);
+    await noteRepo.addNote(note, null);
+    fetchNote();
+  }
+
+  Future<void> updateNote(String note, int id) async {
+    await noteRepo.addNote(note, id);
     fetchNote();
   }
 

@@ -1,16 +1,28 @@
-# expense_tracker
+# 💰 Expense Tracker
 
-A new Flutter project.
+A simple and elegant Flutter app for tracking your daily expenses. Built using GetX for state management and Isar for local storage to keep your data private and offline-friendly.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+![alt text](assets/image/p1.jpg)
+![alt text](assets/image/p2.jpg)
+![alt text](assets/image/p3.jpg)
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 📱 Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- 📝 Add and delete expenses
+- 📊 View total daily and monthly spending
+- 🔍 Filter expenses by month 
+- 💾 Local storage (offline support)
+- ⚡ Built with Flutter and GetX
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Flutter SDK (v3.x or later recommended)
+- Android Studio / VS Code
+- Emulator or physical device
+

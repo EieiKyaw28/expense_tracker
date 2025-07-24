@@ -59,6 +59,7 @@ class _NoteCreatePageState extends State<NoteCreatePage> {
   @override
   Widget build(BuildContext context) {
     final noteController = Get.find<NoteController>();
+    log("Note id : ${widget.id}");
 
     return CommonScaffold(
       appBar: const CommonAppBar(
@@ -78,11 +79,9 @@ class _NoteCreatePageState extends State<NoteCreatePage> {
 
           noteController.addNote(jsonEncode(noteJson));
         },
-        child: const Text(
-          "Save",
-          style: TextStyle(
-            color: Colors.white,
-          ),
+        child: const Icon(
+          Icons.check,
+          color: Colors.white,
         ),
       ),
       body: Padding(

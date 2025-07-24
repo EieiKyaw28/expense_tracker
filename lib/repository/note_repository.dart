@@ -23,19 +23,24 @@ class NoteRepository {
     return note;
   }
 
-  Future<void> addNote(
-    String note,
-  ) async {
+  Future<void> addNote(String noteString, int? id) async {
     try {
-      final newCart = Note()
-        ..note = note
-        ..createdAt = DateTime.now().toUtc();
+      Note? note;
 
-      log("Adding new note : $note");
+      if (id != null) {
+        note = await isar.notes.get(id);
+      }
 
-      await isar.writeTxn(() async {
-        await isar.notes.put(newCart);
-      });
+      if (note != null) {
+        note.note = noteString;
+      } else {
+        note = Note()
+          ..note = noteString
+          ..createdAt = DateTime.now().toUtc();
+      }
+
+      await isar.notes.put(note);
+
       Navigator.pop(navigatorKey.currentContext!);
     } catch (e, st) {
       log("Note Error : $e $st");
