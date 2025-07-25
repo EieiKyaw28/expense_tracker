@@ -79,15 +79,16 @@ List<MenuModel> menuList = [
     image: MyImage.homeIcon,
     route: Container(),
   ),
-  MenuModel(
-    title: "Note",
-    image: MyImage.noteIcon,
-    route: Container(),
-  ),
+
   MenuModel(
     title: "History",
     image: MyImage.historyIcon,
     route: const HistoryPage(),
+  ),
+  MenuModel(
+    title: "Note",
+    image: MyImage.noteIcon,
+    route: Container(),
   ),
   // MenuModel(
   //   title: "Chart",

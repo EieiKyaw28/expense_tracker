@@ -76,8 +76,13 @@ class _NoteCreatePageState extends State<NoteCreatePage> {
         backgroundColor: MyTheme.primaryColor,
         onPressed: () {
           final noteJson = _controller.document.toDelta().toJson();
-
-          noteController.addNote(jsonEncode(noteJson));
+          if (widget.id == null) {
+            noteController.addNote(
+              jsonEncode(noteJson),
+            );
+          } else {
+            noteController.updateNote(jsonEncode(noteJson), widget.id!);
+          }
         },
         child: const Icon(
           Icons.check,
