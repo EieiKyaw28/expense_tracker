@@ -49,6 +49,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    incomeController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final drawerController = Get.find<ZoomDrawerGetXController>();
 
@@ -133,7 +139,7 @@ class _HomePageState extends State<HomePage> {
                       );
                     },
                     expenses: expenses,
-                    income: expenseController.budget.income.toString(),
+                    income: expenseController.budget.income,
                     balance: expenseController.balance.toString(),
                   ),
                   10.vGap,
@@ -264,6 +270,7 @@ class _HomePageState extends State<HomePage> {
                     child: CommonTextField(
                       filledColor: MyTheme.bgColor,
                       controller: incomeController,
+                      keyboardType: const TextInputType.numberWithOptions(),
                     ),
                   ),
                   5.hGap,

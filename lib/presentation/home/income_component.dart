@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:expense_tracker/constant/extensions.dart';
 import 'package:expense_tracker/constant/my_theme.dart';
 import 'package:expense_tracker/constant/number_formatter.dart';
@@ -16,14 +14,13 @@ class IncomeComponent extends StatelessWidget {
     required this.expenses,
     required this.onTap,
   });
-  final String? income;
+  final double? income;
   final String balance;
   final List<Expense> expenses;
   final Function() onTap;
 
   @override
   Widget build(BuildContext context) {
-    log("Income :$income");
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -58,42 +55,41 @@ class IncomeComponent extends StatelessWidget {
                           borderRadius: BorderRadius.circular(5),
                           color: Colors.white),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ((income?.isEmpty ?? false) && income == null)
-                            ? Column(
-                                children: [
-                                  const Text(
-                                    "Your Budget",
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 12),
-                                  ),
-                                  Text(
-                                    "${numberFormatter(income ?? '')} Ks",
-                                    style: const TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
+                          padding: const EdgeInsets.all(8.0),
+                          child: ((income ?? 0) <= 0)
+                              ? const Column(
+                                  children: [
+                                    Icon(Icons.add),
+                                    Text(
+                                      "Add your budget",
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold),
                                     ),
-                                  ),
-                                ],
-                              )
-                            : const Column(
-                                children: [
-                                  Icon(Icons.add),
-                                  Text(
-                                    "Add your budget",
-                                    style: TextStyle(
+                                  ],
+                                )
+                              : Column(
+                                  children: [
+                                    const Text(
+                                      "Your Budget",
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 12),
+                                    ),
+                                    Text(
+                                      "${numberFormatter(income.toString())} Ks",
+                                      style: const TextStyle(
                                         color: Colors.black,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                      ),
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                )),
                     ),
                   ),
                 ),
                 4.hGap,
-                if ((income?.isEmpty ?? false) && income == null)
+                if ((income ?? 0) > 0)
                   Expanded(
                     child: Container(
                       decoration: BoxDecoration(
