@@ -49,116 +49,103 @@ class _SplashPageState extends State<SplashPage>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F9EF),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.white, MyTheme.primaryColor.withOpacity(.5)],
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 60),
-          child: Stack(
-            //crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Graph
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: CustomPaint(
-                  painter: CurvedStartLineGraphPainter(amounts),
-                  child: Center(), // For layout only
-                ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 60),
+        child: Stack(
+          //crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Graph
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CustomPaint(
+                painter: CurvedStartLineGraphPainter(amounts),
+                child: Center(), // For layout only
               ),
+            ),
 
-              // Title and Subtitle
-              const Positioned(
-                top: 50,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Text(
-                    //   '💰 NO 1 IN PRODUCT HUNT',
-                    //   style: TextStyle(
-                    //     fontSize: 14,
-                    //     color: Colors.green,
-                    //     fontWeight: FontWeight.bold,
-                    //   ),
-                    // ),
-                    Text(
-                      'Your Smart\nMoney Manager!',
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                      ),
+            // Title and Subtitle
+            const Positioned(
+              top: 50,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Text(
+                  //   '💰 NO 1 IN PRODUCT HUNT',
+                  //   style: TextStyle(
+                  //     fontSize: 14,
+                  //     color: Colors.green,
+                  //     fontWeight: FontWeight.bold,
+                  //   ),
+                  // ),
+                  Text(
+                    'Your Smart\nMoney Manager!',
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
                     ),
-                    SizedBox(height: 12),
-                    Text(
-                      'Track your spending, make budgeting\n'
-                      'effortless, and crush your savings\n'
-                      'goals – All in one place.',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black54,
-                      ),
+                  ),
+                  SizedBox(height: 12),
+                  Text(
+                    'Track your spending, make budgeting\n'
+                    'effortless, and crush your savings\n'
+                    'goals – All in one place.',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.black54,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              _animatedIcon(
+            ),
+            Positioned(
+              bottom: 280,
+              right: 40,
+              child: _animatedIcon(
                 name: 'food',
                 icon: MyImage.food,
               ),
-              Positioned(
-                bottom: 240,
-                right: 100,
-                child: _animatedIcon(
-                  name: 'other',
-                  icon: MyImage.expenseIcon,
-                ),
+            ),
+            Positioned(
+              bottom: 240,
+              right: 100,
+              child: _animatedIcon(
+                name: 'other',
+                icon: MyImage.expenseIcon,
               ),
-              Positioned(
-                bottom: 10,
-                right: 10,
-                child: _animatedIcon(
-                  name: 'education',
-                  icon: MyImage.education,
-                ),
+            ),
+            Positioned(
+              bottom: 10,
+              right: 10,
+              child: _animatedIcon(
+                name: 'education',
+                icon: MyImage.education,
               ),
-              Positioned(
-                bottom: 150,
-                right: 50,
-                child: _animatedIcon(
-                  name: 'transporation',
-                  icon: MyImage.transporation,
-                ),
+            ),
+            Positioned(
+              bottom: 150,
+              right: 50,
+              child: _animatedIcon(
+                name: 'transporation',
+                icon: MyImage.transporation,
               ),
-              Positioned(
-                bottom: 10,
-                right: 10,
-                child: _animatedIcon(
-                  name: 'education',
-                  icon: MyImage.education,
-                ),
+            ),
+            Positioned(
+              bottom: 10,
+              right: 10,
+              child: _animatedIcon(
+                name: 'education',
+                icon: MyImage.education,
               ),
-              Positioned(
-                bottom: 50,
-                right: 100,
-                child: _animatedIcon(
-                  name: 'bill',
-                  icon: MyImage.bill,
-                ),
+            ),
+            Positioned(
+              bottom: 50,
+              right: 100,
+              child: _animatedIcon(
+                name: 'bill',
+                icon: MyImage.bill,
               ),
-              _animatedIcon(
-                name: 'food',
-                icon: MyImage.food,
-              ),
-              _animatedIcon(
-                name: 'food',
-                icon: MyImage.food,
-              )
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -254,7 +241,7 @@ class CurvedStartLineGraphPainter extends CustomPainter {
       final textSpan = TextSpan(
         text: '\$${amounts[i].toInt()}',
         style: const TextStyle(
-            fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white),
+            fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black),
       );
       final textPainter = TextPainter(
         text: textSpan,
