@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:expense_tracker/constant/extensions.dart';
 import 'package:expense_tracker/constant/my_theme.dart';
 import 'package:expense_tracker/constant/number_formatter.dart';
@@ -14,13 +16,14 @@ class IncomeComponent extends StatelessWidget {
     required this.expenses,
     required this.onTap,
   });
-  final String income;
+  final String? income;
   final String balance;
   final List<Expense> expenses;
   final Function() onTap;
 
   @override
   Widget build(BuildContext context) {
+    log("Income :$income");
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -56,7 +59,7 @@ class IncomeComponent extends StatelessWidget {
                           color: Colors.white),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: income.isNotEmpty
+                        child: ((income?.isEmpty ?? false) && income == null)
                             ? Column(
                                 children: [
                                   const Text(
@@ -65,7 +68,7 @@ class IncomeComponent extends StatelessWidget {
                                         color: Colors.black, fontSize: 12),
                                   ),
                                   Text(
-                                    "${numberFormatter(income)} Ks",
+                                    "${numberFormatter(income ?? '')} Ks",
                                     style: const TextStyle(
                                       color: Colors.black,
                                       fontSize: 16,
@@ -90,7 +93,7 @@ class IncomeComponent extends StatelessWidget {
                   ),
                 ),
                 4.hGap,
-                if (income.isNotEmpty)
+                if ((income?.isEmpty ?? false) && income == null)
                   Expanded(
                     child: Container(
                       decoration: BoxDecoration(
