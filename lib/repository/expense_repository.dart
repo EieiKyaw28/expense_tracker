@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
 
 class ExpenseRepository {
-  Stream<Budget> getExpenseList(ExpenseFamilyModel? family) {
+  Stream<Budget?> getExpenseList(ExpenseFamilyModel? family) {
     Stream<List<Budget>> budgetStream;
 
     if (family == null) {
@@ -30,8 +30,6 @@ class ExpenseRepository {
       budgetStream = query.watch(fireImmediately: true);
     }
 
-    // return budgetStream.asyncExpand((list) => Stream.fromIterable(list));
-
     return budgetStream.map((list) {
       final budget = list.firstOrNull;
       if (budget != null) {
@@ -39,7 +37,7 @@ class ExpenseRepository {
         budget.expenseList?.sort((a, b) =>
             (b.createdAt ?? DateTime(0)).compareTo(a.createdAt ?? DateTime(0)));
       }
-      return budget!;
+      return budget;
     });
   }
 
@@ -66,7 +64,6 @@ class ExpenseRepository {
     int? id,
   }) async {
     try {
-      log("Income ID :: $id $income");
       final now = DateTime.now().toUtc();
 
       await isar.writeTxn(() async {
@@ -109,8 +106,6 @@ class ExpenseRepository {
         ..amount = amount
         ..expenseType = expenseType
         ..createdAt = now;
-
-      log("Adding new expense: $description $now");
 
       await isar.writeTxn(() async {
         Budget? budget = await isar.budgets

@@ -27,7 +27,7 @@ class ChartController extends GetxController {
     expenseRepo.getExpenseList(family).listen((expenses) {
       // Filter current month's expenses
       final now = DateTime.now();
-      final currentMonthExpenses = expenses.expenseList?.where((e) {
+      final currentMonthExpenses = expenses?.expenseList?.where((e) {
         return e.createdAt != null &&
             e.createdAt!.year == now.year &&
             e.createdAt!.month == now.month;
@@ -55,12 +55,12 @@ class ChartController extends GetxController {
 
         return ChartModel(
           percentage: double.tryParse(percentage.toString()) ?? 0,
-          image: searchExpenseIconBySlug(type), // optional function
-          color: searchColorBySlug(type), // optional function
+          image: searchExpenseIconBySlug(type),
+          color: searchColorBySlug(type),
         );
       }).toList();
 
-      update(); // notify UI
+      update();
     });
   }
 }

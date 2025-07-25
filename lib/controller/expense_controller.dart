@@ -28,11 +28,11 @@ class ExpenseController extends GetxController {
   Future<void> fetchExpenses({required ExpenseFamilyModel? family}) async {
     selectedFamily = family;
     expenseRepo.getExpenseList(family).listen((expense) {
-      expenseList = expense.expenseList ?? [];
+      expenseList = expense?.expenseList ?? [];
       budget = Budget(
-        id: expense.id,
-        income: expense.income,
-        createdAt: expense.createdAt,
+        id: expense?.id ?? 0,
+        income: expense?.income,
+        createdAt: expense?.createdAt,
       );
       income = budget.income ?? 0;
       double totalExpenses = expenseList.fold(
@@ -52,7 +52,7 @@ class ExpenseController extends GetxController {
     expenseRepo.getExpenseList(family).listen((expenses) {
       final Map<String, List<Expense>> grouped = {};
 
-      for (final expense in expenses.expenseList ?? []) {
+      for (final expense in expenses?.expenseList ?? []) {
         final expenseDate = expense.createdAt!;
 
         // Calculate today and yesterday

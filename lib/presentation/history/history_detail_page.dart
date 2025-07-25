@@ -10,7 +10,6 @@ import 'package:expense_tracker/domain/expense/expense_family_model.dart';
 import 'package:expense_tracker/domain/month/month_model.dart';
 import 'package:expense_tracker/presentation/history/expense_type_pie_chart.dart';
 import 'package:expense_tracker/presentation/history/widget/history_detail_card.dart';
-import 'package:expense_tracker/presentation/history/history_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';

@@ -30,7 +30,6 @@ class NoteRepository {
         if (id != null) {
           note = await isar.notes.get(id);
         }
-        log("ID : $id | note : $note");
 
         if (note != null) {
           note?.note = noteString;

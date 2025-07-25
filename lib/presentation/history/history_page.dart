@@ -60,9 +60,9 @@ class _HistoryPageState extends State<HistoryPage> {
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     mainAxisExtent: 100,
                     crossAxisCount: 2,
-                    crossAxisSpacing: 8,
-                    mainAxisSpacing: 8,
-                    childAspectRatio: 1.0,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    childAspectRatio: 2,
                   ),
                   itemCount: months.length,
                   itemBuilder: (context, index) {

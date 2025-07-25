@@ -15,64 +15,62 @@ class MonthModel {
 final List<MonthModel> months = [
   MonthModel(
     name: 'January',
-    lightColor: Color(0xFFE3F2FD), // Light Blue
-    darkColor: Color(0xFF90CAF9), // Darker Blue
+    lightColor: const Color(0xFFE0F7FA), // Icy Blue – Winter Chill
+    darkColor: const Color(0xFF00ACC1), // Frosty Blue
   ),
   MonthModel(
     name: 'February',
-    lightColor: Color(0xFFF8BBD0), // Pink
-    darkColor: Color(0xFFF48FB1), // Dark Pink
+    lightColor: const Color(0xFFF8BBD0), // Soft Pink – Valentine's vibe
+    darkColor: const Color(0xFFC2185B), // Deep Romantic Pink
   ),
   MonthModel(
     name: 'March',
-    lightColor: Color(0xFFC8E6C9), // Mint Green
-    darkColor: Color(0xFFA5D6A7), // Darker Mint
+    lightColor: const Color(0xFFC8E6C9), // Light Green – New growth
+    darkColor: const Color(0xFF2E7D32), // Rich Spring Green
   ),
   MonthModel(
     name: 'April',
-    lightColor: Color(0xFFFFF9C4), // Light Yellow
-    darkColor: Color.fromARGB(255, 190, 175, 39), // Yellow
+    lightColor: const Color(0xFFFFF59D), // Light Yellow – Sunshine & blossoms
+    darkColor: const Color(0xFFFBC02D), // Golden Spring Sun
   ),
   MonthModel(
     name: 'May',
-    lightColor: Color(0xFFD1C4E9), // Lavender
-    darkColor: Color(0xFFB39DDB), // Deeper Lavender
+    lightColor: const Color(0xFFFFCDD2), // Blooming Pink – Flower season
+    darkColor: const Color(0xFFE91E63), // Bright Floral Pink
   ),
   MonthModel(
     name: 'June',
-    lightColor: Color.fromARGB(255, 240, 102, 60), // Peach
-    darkColor: Color.fromARGB(255, 201, 50, 4), // Deeper Peach
+    lightColor: const Color(0xFFFFECB3), // Warm Amber – Early summer
+    darkColor: const Color(0xFFFF9800), // Golden Orange
   ),
   MonthModel(
     name: 'July',
-    lightColor: Color(0xFFB2EBF2), // Cyan
-    darkColor: Color(0xFF4DD0E1), // Deeper Cyan
+    lightColor: const Color(0xFFBBDEFB), // Sky Blue – Clear skies
+    darkColor: const Color(0xFF1976D2), // Strong Blue
   ),
   MonthModel(
     name: 'August',
-    lightColor: Color(0xFFFFE0B2), // Soft Orange
-    darkColor: Color(0xFFFFB74D), // Orange
+    lightColor: const Color(0xFFFFF3E0), // Light Orange – Summer sunsets
+    darkColor: const Color(0xFFF57C00), // Deep Orange
   ),
   MonthModel(
     name: 'September',
-    lightColor: Color(0xFFE6EE9C), // Lime Green
-    darkColor: Color(0xFFD4E157), // Deeper Lime
+    lightColor: const Color(0xFFDCE775), // Light Olive Green – Transition
+    darkColor: const Color(0xFFAFB42B), // Earthy Green
   ),
   MonthModel(
     name: 'October',
-    lightColor: Color.fromARGB(255, 44, 43, 66), // Light Olive
-    darkColor: Color.fromARGB(255, 6, 4, 46), // Olive
+    lightColor: const Color(0xFFFFCCBC), // Pumpkin/Autumn
+    darkColor: const Color(0xFFD84315), // Rich Rust Orange
   ),
   MonthModel(
     name: 'November',
-    lightColor: Color(0xFFFFCDD2), // Rose
-    darkColor: Color(0xFFE57373), // Deeper Rose
+    lightColor: const Color(0xFFFFE0B2), // Brownish Orange – Fall leaves
+    darkColor: const Color(0xFF8D6E63), // Brown – Earth tones
   ),
   MonthModel(
     name: 'December',
-    lightColor: Color(0xFFB3E5FC), // Sky Blue
-    darkColor: Color(0xFF4FC3F7), // Stronger Sky Blue
+    lightColor: const Color(0xFFB3E5FC), // Snowy Blue – Winter theme
+    darkColor: const Color(0xFF0288D1), // Chilly Blue
   ),
 ];
-
-
