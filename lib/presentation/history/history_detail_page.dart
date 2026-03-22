@@ -34,6 +34,7 @@ class HistoryDetailPage extends StatefulWidget {
 
 class _HistoryDetailPageState extends State<HistoryDetailPage> {
   int selectedIndex = 0;
+  final date = DateTime.now();
 
   @override
   void initState() {
@@ -42,7 +43,7 @@ class _HistoryDetailPageState extends State<HistoryDetailPage> {
       Get.find<ExpenseController>().fetchExpenses(
         family: ExpenseFamilyModel(
           month: widget.monthIndex,
-          year: 2025,
+          year: date.year,
         ),
       );
     });
@@ -56,7 +57,7 @@ class _HistoryDetailPageState extends State<HistoryDetailPage> {
       appBar: CommonAppBar(
         hasDrawer: false,
         title: Text(
-          "2025, ${widget.month.name} History",
+          "${date.year}, ${widget.month.name} History",
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,

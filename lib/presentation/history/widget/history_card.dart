@@ -53,16 +53,16 @@ class HistoryCard extends StatelessWidget {
           top: 10,
           left: 0,
           child: Container(
-            width: 80,
+            // width: 80,
             decoration: BoxDecoration(boxShadow: <BoxShadow>[
               BoxShadow(
-                color: month.lightColor, //Colors.black.withValues(alpha: .2)
+                color: month.lightColor,
                 offset: const Offset(3, 3),
                 blurRadius: 3,
               ),
             ], color: month.darkColor, borderRadius: BorderRadius.circular(5)),
             child: Padding(
-              padding: const EdgeInsets.all(4),
+              padding: const EdgeInsets.all(5),
               child: Text(
                 month.name,
                 textAlign: TextAlign.center,

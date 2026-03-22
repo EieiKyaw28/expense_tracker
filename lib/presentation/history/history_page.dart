@@ -26,8 +26,9 @@ class _HistoryPageState extends State<HistoryPage> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final expenseController = Get.find<ExpenseController>();
+      final date = DateTime.now();
 
-      expenseController.getTotalForMonth(2025);
+      expenseController.getTotalForMonth(date.year);
       expenseController.fetchExpenses(family: null);
     });
   }
